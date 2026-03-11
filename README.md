@@ -1,30 +1,32 @@
-# Vesta B2B SaaS Landing Page
+# Vesta Landing Page
 
-A high-converting, "Human-Centric Digital Transformation" landing page built for small-to-medium enterprises (SMEs) and government agencies in the Philippines.
+A high-converting, premium dark-mode B2B SaaS landing page designed to attract disruptive brands, founders, and enterprises. The application is a fully responsive single-page architecture built for maximum visual impact and immediate lead capture.
 
 ## Key Features
 
-- **Strategic Design:** Clean, modern, and "warm" aesthetic using heavy negative space, soft blues, and crisp typography (`Inter`).
-- **Engaging UI Components:** Includes complex CSS grid backgrounds, glassmorphism (`backdrop-blur`), sticky navigation, and infinite scrolling logo marquees.
-- **Fast and Responsive:** Built atop Vite for instant HMR development, fully responsive leveraging Tailwind CSS breakpoints.
-- **Iconography:** Utilizes `lucide-react` for clean, scalable vector graphics.
+- **Immersive Dark Mode Aesthetic**: Utilizes a deep slate-950 foundation with targeted `slate-800` elevations and subtle blue/white glowing accents.
+- **Zig-Zag Service Layout**: Engages users with alternating text and visual content blocks to prevent scroll fatigue.
+- **Dynamic Infinite Marquee**: Features a CSS-powered infinite looping logo carousel for displaying partner networks.
+- **Conversion-Optimized CTAs**: All primary buttons securely route to a dedicated `#contact` lead capture form.
+- **Scroll-Snapping Carousels**: Smooth, native CSS scroll-snapping for horizontal lists.
 
 ---
 
 ## Tech Stack
 
-- **Framework:** React 19 via Vite
-- **Styling:** Tailwind CSS V4
-- **Icons:** `lucide-react`
-- **Typography:** Inter (Standard Sans-Serif system fonts mapping)
-- **Deployment Target:** Static hosting capable (Vercel, Netlify, GitHub Pages)
+- **Language**: JavaScript / JSX
+- **Framework**: React 18
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS 3.4+
+- **Icons**: Lucide React
+- **Deployment**: Vercel / Netlify / Make (Static Export)
 
 ---
 
 ## Prerequisites
 
 - Node.js 18 or higher
-- npm or pnpm
+- npm or yarn
 
 ---
 
@@ -33,11 +35,11 @@ A high-converting, "Human-Centric Digital Transformation" landing page built for
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository_url>
-cd electric-glenn
+git clone https://github.com/clederamarkx-cody/studious-octo-invention-vesta.git
+cd studious-octo-invention-vesta
 ```
 
-### 2. Install JavaScript Dependencies
+### 2. Install Dependencies
 
 ```bash
 npm install
@@ -45,13 +47,13 @@ npm install
 
 ### 3. Start Development Server
 
-Run the Vite development server:
+Run the Vite local development server:
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) (default Vite port) in your browser.
+Open [http://localhost:5173](http://localhost:5173) in your browser. The server supports hot module replacement (HMR), so changes to React components will instantly reflect in the browser.
 
 ---
 
@@ -60,31 +62,45 @@ Open [http://localhost:5173](http://localhost:5173) (default Vite port) in your 
 ### Directory Structure
 
 ```
-├── public/                 # Static assets (images, SVGs)
-├── skills_acquired/        # Documentation of skills leveraged for this specific build
-│   └── skill.md            # Technical competencies mapped to the project requirements
-├── src/                    # Primary Application Source
-│   ├── components/         # Reusable React components
-│   │   ├── Footer.jsx      # Footer with links and social icons
-│   │   ├── Hero.jsx        # Top section with CTAs
+├── public/                 # Static assets that don't pass through the bundler
+├── skills_acquired/        # Documentation of skills and workflows used to build the app
+├── src/
+│   ├── assets/             # Images, SVGs, and other bundler-processed assets
+│   ├── components/         # React components
+│   │   ├── About.jsx       # 'Who We Are' section with founder note
+│   │   ├── Contact.jsx     # Lead capture form
+│   │   ├── Footer.jsx      # Navigation links and social icons
+│   │   ├── Hero.jsx        # Value proposition and immediate CTA
 │   │   ├── Navbar.jsx      # Sticky top navigation
-│   │   ├── Onboarding.jsx  # Process steps layout
-│   │   ├── Partners.jsx    # Infinite scroll marquee and bottom CTA
-│   │   ├── Projects.jsx    # Portfolio grid display
-│   │   └── Services.jsx    # Horizontal snap-scroll services display
-│   ├── App.jsx             # Main assembly point for layout components
-│   ├── index.css           # Global CSS, Tailwind v4 imports and custom @keyframes
-│   └── main.jsx            # React root injection point
-├── package.json            # Dependencies and scripts workflows
-├── tailwind.config.js      # (Abstracted into index.css for V4 compatibility)
-└── vite.config.js          # Vite bundler configuration
+│   │   ├── Onboarding.jsx  # 5-step process layout
+│   │   ├── Partners.jsx    # Infinite scrolling logo marquee
+│   │   ├── Projects.jsx    # Projects display carousel
+│   │   └── Services.jsx    # Zig-zag feature layout
+│   ├── App.jsx             # Main application assembly and component rendering
+│   ├── App.css             # Global component styles (minimal)
+│   ├── index.css           # Tailwind directives and global CSS resets
+│   └── main.jsx            # React rendering entry point
+├── eslint.config.js        # ESLint configuration for code quality
+├── index.html              # HTML entry point for the Vite SPA
+├── package.json            # Dependencies and scripts
+├── tailwind.config.js      # Tailwind theme configuration
+└── vite.config.js          # Vite build configuration
 ```
 
-### Design Logic
+### Request Lifecycle
 
-Data flow is minimal as this is a static landing page. Components are structured modularly to allow for easy substitution of assets (like logos or project imagery) by swapping out hardcoded arrays within individual components or lifting that state to `App.jsx` in the future.
+1. The browser requests `index.html`.
+2. Vite serves `/src/main.jsx` as an ES module.
+3. React mounts the application into the `<div id="root">` element.
+4. `App.jsx` sequentially renders the static UI components.
+5. In-page anchors (e.g., `<a href="#contact">`) utilize native browser smooth scrolling via CSS `scroll-behavior: smooth`.
 
-Custom CSS utilities specifically for the marquee and text glowing effects are stored in `src/index.css` using the V4 `@utility` declarations.
+### Styling Philosophy
+
+The project aggressively utilizes Tailwind CSS utility classes. 
+- Custom hex codes have been entirely purged in favor of Tailwind's unified `slate` palette.
+- Complex background gradients and glows are generated via radial gradients directly in the JSX `className` string.
+- Animations (like the marquee and glowing sweeps) are defined within `tailwind.config.js`.
 
 ---
 
@@ -92,25 +108,49 @@ Custom CSS utilities specifically for the marquee and text glowing effects are s
 
 | Command | Description |
 | --- | --- |
-| `npm run dev` | Start Vite development server with HMR |
-| `npm run build` | Compile and bundle production ready code in `/dist` |
-| `npm run preview` | Serve the production `/dist` locally to preview build |
-| `npm run lint` | Run ESLint across source files |
+| `npm run dev` | Starts the Vite development server with HMR. |
+| `npm run build` | Compiles a highly optimized, minified production build into `/dist`. |
+| `npm run preview` | Boots a local static server to preview the production `/dist` folder. |
+| `npm run lint` | Runs ESLint to check for code quality and syntax errors. |
 
 ---
 
 ## Deployment
 
-Since this project leverages Vite, it produces static files that can be deployed anywhere.
+Because this is a statically exported React application (SPA) powered by Vite, deployment is incredibly straightforward across any static hosting provider.
 
-### Vercel / Netlify
+### Vercel (Recommended)
 
-1. Connect your repository.
-2. Ensure the framework preset is set to **Vite**.
-3. Build command: `npm run build`
-4. Output directory: `dist`
+1. Push your code to GitHub.
+2. Import the repository into Vercel.
+3. Vercel automatically detects Vite and configures the following settings:
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+4. Click Deploy.
 
-### Manual / Simple Static Hosting
+### Netlify
 
-1. Run `npm run build` to generate the `/dist` folder.
-2. Upload the contents of the `/dist` directory to your hosting provider (e.g., AWS S3, standard cPanel file manager, Google Cloud Storage).
+1. Connect your repository to Netlify.
+2. Use the following build settings:
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+
+### Docker (Nginx Static Serving)
+
+If you must deploy via Docker, build the assets and serve them with Nginx:
+
+```dockerfile
+# Build stage
+FROM node:20-alpine as build
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+# Production stage
+FROM nginx:alpine
+COPY --from=build /app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+```

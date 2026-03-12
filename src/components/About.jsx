@@ -3,7 +3,7 @@ import { Target, TrendingUp, Users } from 'lucide-react';
 
 const About = () => {
   return (
-    <section id="about" className="py-24 relative bg-slate-950 overflow-hidden border-t border-white/5">
+    <section id="about" className="pt-12 pb-24 relative bg-slate-950 overflow-hidden border-t border-white/5">
       {/* Background Orbs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 blur-[150px] rounded-full point-events-none translate-x-1/2 -translate-y-1/2 z-0"></div>
       <div className="absolute top-20 left-10 w-[300px] h-[300px] bg-blue-500/10 blur-[120px] rounded-full point-events-none -translate-x-1/2 z-0"></div>
@@ -12,7 +12,7 @@ const About = () => {
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 relative z-10">
         
         {/* Top Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 mb-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 mb-16 items-center">
             <div>
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm font-semibold mb-6 shadow-[0_0_20px_rgba(59,130,246,0.15)] transition-all hover:bg-blue-500/20">
                     <Target size={16} />
@@ -29,35 +29,28 @@ const About = () => {
                 </a>
             </div>
             
-            {/* Visual Stats / Grids */}
+            {/* Vision Statement Block */}
             <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-indigo-500/10 rounded-3xl transform rotate-3 scale-105 z-0"></div>
-                <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 relative z-10 shadow-2xl flex flex-col gap-6">
-                    <div className="grid grid-cols-2 gap-6">
-                        <div className="bg-black/30 p-6 rounded-2xl border border-white/5 flex flex-col gap-2">
-                            <TrendingUp className="text-slate-400 mb-2" size={28} />
-                            <span className="text-3xl font-bold text-white">40+</span>
-                            <span className="text-sm text-gray-400 font-medium">Systems deployed</span>
+                <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 relative z-10 shadow-2xl flex flex-col justify-center h-full min-h-[300px]">
+                    <div className="flex items-center gap-3 mb-6">
+                        <div className="p-3 bg-blue-500/20 rounded-xl">
+                            <Target size={24} className="text-blue-400" />
                         </div>
-                        <div className="bg-black/30 p-6 rounded-2xl border border-white/5 flex flex-col gap-2">
-                            <Users className="text-slate-400 mb-2" size={28} />
-                            <span className="text-3xl font-bold text-white">2.5M+</span>
-                            <span className="text-sm text-gray-400 font-medium">Users managed</span>
-                        </div>
+                        <h3 className="text-2xl font-bold text-white">Our Vision</h3>
                     </div>
-                     <div className="bg-gradient-to-r from-slate-800 to-slate-700 p-6 rounded-2xl flex items-center justify-between text-white border border-slate-600">
-                        <div>
-                            <span className="block text-2xl font-bold mb-1">99.9%</span>
-                            <span className="text-slate-300 text-sm font-medium">Uptime Guarantee</span>
-                        </div>
-                        <Target size={32} className="opacity-80 text-slate-300" />
-                    </div>
+                    <blockquote className="text-xl sm:text-2xl text-slate-300 font-medium leading-relaxed italic">
+                        "To build the most secure, intuitive, and effective platform for safety-first organizations."
+                    </blockquote>
+                    <p className="mt-6 text-gray-400 leading-relaxed">
+                        We believe that safety training doesn't just check a box—it saves lives. Our goal is to empower organizations with technology that makes safety culture seamless and scalable.
+                    </p>
                 </div>
             </div>
         </div>
 
         {/* Philosophy Bottom Row */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 border-t border-white/10 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-white/10 mb-12">
             <div>
                 <h3 className="text-xl font-semibold text-white mb-3">01. Bespoke Strategy</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">
@@ -79,7 +72,7 @@ const About = () => {
         </div>
 
         {/* Founder's Note / Authority Block */}
-        <div className="mt-12 bg-slate-900/50 border border-slate-800 rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row gap-8 items-center md:items-start relative overflow-hidden">
+        <div className="mt-8 bg-slate-900/50 border border-slate-800 rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row gap-8 items-center md:items-start relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3"></div>
             
             <div className="w-24 h-24 sm:w-32 sm:h-32 shrink-0 rounded-full bg-slate-800 border-2 border-slate-700 overflow-hidden flex items-center justify-center relative z-10 shadow-xl">

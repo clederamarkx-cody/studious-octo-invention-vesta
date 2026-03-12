@@ -2,10 +2,10 @@ import React from 'react';
 import { Layers } from 'lucide-react';
 
 const projects = [
-  { name: 'Mcars', desc: 'Financing the Road to Ownership' },
-  { name: 'BHND THE WORK', desc: 'Fashion Meets Function' },
-  { name: 'Saria Digitals', desc: 'Scalable Income' },
-  { name: 'HelmetPro', desc: 'Streetwear Meets System' }
+  { name: 'Safety Pro', desc: 'Financing the Road to Ownership' },
+  { name: 'Safety Pro', desc: 'Fashion Meets Function' },
+  { name: 'Safety Pro', desc: 'Scalable Income' },
+  { name: 'Safety Pro', desc: 'Streetwear Meets System' }
 ];
 
 const Projects = () => {
